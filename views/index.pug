@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Blob Vault Photo Verification
+  body
+    form(method='POST' action='')
+      h1 Blob Vault Photo Verification
+      table(border=1)
+        tr
+          th ID Photo
+          th Selfie Photo
+          th Verification
+        each info in infos
+          tr
+            td
+              img(src=`data:${info.idPhoto.contentType};base64,${info.idPhoto.data}`)
+            td
+              img(src=`data:${info.selfiePhoto.contentType};base64,${info.selfiePhoto.data}`)
+            td
+              if info.accepted === undefined
+                button(type='submit' name='accept' value=info.address) Accept
+                button(type='submit' name='reject' value=info.address) Reject
+              else
+                if info.accepted
+                  p Accepted
+                else
+                  p Rejected
