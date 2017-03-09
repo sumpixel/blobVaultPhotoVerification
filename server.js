@@ -11,26 +11,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'pug');
 app.get('/', logic.showPhotos);
-app.post('/', logic.updateVerificationResult);
+app.post('/', logic.updateVerificationStatus);
 
-const { mongo } = config;
-const uri = `${mongo.host}:${mongo.port}/${mongo.database}`;
-const options = {
-  user: mongo.user,
-  pass: mongo.password,
-  auth: {
-    authdb: mongo.authDatabase,
-  },
-};
-
-database.connect(uri, options)
-  .then(() => {
-    logger.info(`Connected to database ${uri}`);
+database.connect()
+  .then((stores) => {
+    logic.setStores(stores);
+    
     const port = config.port || 3000;
     app.listen(port, () => {
       logger.info(`Listening on port ${port}`);
     });
   })
   .catch((err) => {
-    logger.error(`Failed to connect to database ${uri}`);
+    logger.error('Failed to connect to database', err);
   });
