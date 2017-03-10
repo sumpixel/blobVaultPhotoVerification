@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "./node_modules/.bin/babel-node server.js",
+    "start:prod": "NODE_ENV=production npm run start",
+    "start:staging": "NODE_ENV=staging npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
