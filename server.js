@@ -4,14 +4,17 @@ import config from './config';
 import logger from './lib/logger';
 import database from './lib/database';
 import logic from './lib/logic';
+import topup from './lib/topup';
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'pug');
-app.get('/', logic.showPhotos);
-app.post('/', logic.updateVerificationStatus);
+app.get('/photo', logic.showPhotos);
+app.post('/photo', logic.updateVerificationStatus);
+app.get('/topup', topup.showTopup);
+app.post('/topup', topup.doTopup);
 
 database.connect()
   .then((stores) => {

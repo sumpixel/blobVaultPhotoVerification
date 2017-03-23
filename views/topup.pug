@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Topup Tidepay account
+  body
+    form(method='POST' action='')
+      h1 Topup Tidepay account
+      div
+        label(for='Address') Address:
+        input#Address(type='text' name='address')
+      div
+        label(for='Amount') Amount:  
+        input#Amount(type='text' name='amount')
+        select(name='currency')
+          each currency, i in currencyList
+            option(value=i) #{currency}
+      div
+        button(type='submit') Confirm
