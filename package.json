@@ -1,7 +1,7 @@
 {
-  "name": "blob_vault_photo_verification",
+  "name": "tidepay-admin",
   "version": "1.0.0",
-  "description": "blob vault photo verification",
+  "description": "Tidepay admin tools",
   "main": "server.js",
   "scripts": {
     "start": "./node_modules/.bin/babel-node server.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sumpixel/blobVaultPhotoVerification.git"
+    "url": "git+https://github.com/sumpixel/tidepay-admin.git"
   },
   "author": "Sum Ling",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sumpixel/blobVaultPhotoVerification/issues"
+    "url": "https://github.com/sumpixel/tidepay-admin/issues"
   },
-  "homepage": "https://github.com/sumpixel/blobVaultPhotoVerification#readme",
+  "homepage": "https://github.com/sumpixel/tidepay-admin#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.1",
